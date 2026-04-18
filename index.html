@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <!-- Reference stylesheet to style.css -->
+        <link rel="stylesheet" href="style.css">
+        <title>HTML Audio Controls - Beginner Demo</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body>
+        <!-- 1. Default Audio Player -->
+        <h2>Destiny 2 - Journey (Vocal Variant 2)</h2>
+        <!-- Add audio tags with controls, autoplay, loop, etc. -->
+        <!-- Note certain browsers (ie. Chrome) have disabled autoplay feature -->
+        <!-- Firefox requires user settings to allow Autoplay for all websites  --> 
+        <audio controls autoplay loop>
+            <!-- Include source element to audio files -->
+            <source src="Destiny 2 - Journey (Vocal Variant 2).mp3" type="audio/mpeg">
+            <!-- You may use .wav files if mp3 is not supported, for example: -->
+            <!-- <source src="Destiny 2 - Journey (Vocal Variant 2).wav" type="audio/wav"> -->
+        </audio> 
+        
+
+        <!-- 2. Audio Player with buttons to help with volume control -->
+        <!-- Having buttons that adjusts audio volume to a predetermined level -->
+        <h2>Destiny 2 - Journey (Vocal Variant 2)</h2>
+        <button onclick="getVolume()" type="button">What is the Volume?</button>
+        <button onclick="setLowVolume()" type="button">Set Volume to 20%</button>
+        <button onclick="setHalfVolume()" type="button">Set Volume to 50%</button>
+        <button onclick="setFullVolume()" type="button">Set Volume to 100%</button> 
+        <!-- Insert a line break -->
+        <br>
+
+        <!-- Give audio file an id for us to callback later -->
+        <audio id="audio1" controls autoplay loop>
+            <source src="Destiny 2 - Journey (Vocal Variant 2).mp3" type="audio/mpeg">
+        </audio>
+
+        <!-- These JScripts is what gives the buttons its functions -->
+        <script>    
+            let audio = document.getElementById("audio1");
+            function getVolume(){
+                let volumePercent = Math.round(audio.volume*100);   //to show audio volume in xx% instead of float
+                alert(volumePercent+"%");  //window pop-up telling user their volume level
+            }
+            function setLowVolume(){
+                audio.volume = 0.2;   //set audio level to 20%
+            }
+            function setHalfVolume(){
+                audio.volume = 0.5;   //set audio level to 50%
+            }
+            function setFullVolume(){
+                audio.volume = 1;     //set audio level to 100%
+            }
+        </script>
+
+    </body>
+
+</html>
